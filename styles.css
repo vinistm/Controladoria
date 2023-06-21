@@ -1,12 +1,18 @@
+* {
+  font-size: 50px;
+}
 body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   padding: 20px;
+  align-items: center;
+  margin-top: 20%;
 }
 
 h2 {
   text-align: center;
+  background-color: rgba(212, 205, 205, 0.37);
 }
 
 table {
@@ -122,21 +128,50 @@ button:hover {
 
 .totais {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   margin-top: 20px;
 }
 
 #add {
-  width: 100px;
-  height: 20px;
+  width: 250px;
+  font-size: 40px;
+  height: 100px;
 }
 
 .insert {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
 }
+.insert > input {
+  width: 90%;
+  font-size: 35px;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.192);
+  text-align: center;
+}
+
+.insert > input:hover {
+  background-color: rgba(168, 168, 168, 0.411);
+}
+.insert > #type {
+  width: 90%;
+  font-size: 25px;
+  padding: 5px 5px 5px 5px;
+  border-radius: 12px;
+}
+.insert > #type:hover {
+  background-color: rgba(196, 195, 195, 0.356);
+  cursor: pointer;
+}
+
+.insert > #type > option {
+  font-size: 20px;
+}
+
 h3 {
   margin: auto;
 }
