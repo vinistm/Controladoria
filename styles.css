@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.total {
+  font-weight: bold;
+}
+
+.entries,
+.expenses,
+.recurring {
+  background-color: #f4c2c2;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%; /* Alterado para ocupar 100% da largura */
+}
+
+.entries > div,
+.expenses > div,
+.recurring > div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+}
+
+.expenses > div > button,
+.recurring > div > button,
+.entries > div > button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.expenses > div > button:hover,
+.recurring > div > button:hover,
+.entries > div > button:hover {
+  background-color: #333333;
+}
+
+.valores {
+  display: flex;
+  flex-wrap: wrap; /* Alterado para permitir que os elementos quebrem para uma nova linha */
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #44c767;
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  height: 20px;
+  width: 30px;
+}
+
+button:hover {
+  background-color: #5cbf2a;
+}
+
+.entradas,
+.saidas,
+.recorrente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.totais {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+#add {
+  width: 100px;
+  height: 20px;
+}
+
+.insert {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
