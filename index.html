@@ -5,9 +5,11 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <h2>Tabela Financeira</h2>
+    <div class="header">
+      <h2>Tabela Financeira</h2>
+      <button id="reveal" onclick="revealValues()">Show</button>
+    </div>
 
-    <button id="reveal" onclick="revealValues()">Show</button>
     <div class="valores">
       <div class="entradas">
         <h3>Entradas</h3>
@@ -28,10 +30,8 @@
       <h3>Total de Saídas: <span id="total-expenses">0</span></h3>
     </div>
 
-    <br />
-    <h3 id="balance"></h3>
-    <br />
     <div class="insert">
+      <h3 id="balance"></h3>
       <input type="text" id="description" placeholder="Descrição" />
       <select id="type">
         <option value="income">Entrada</option>
@@ -39,9 +39,10 @@
         <option value="recurring">Contas Recorrentes</option>
       </select>
       <input type="number" id="value" placeholder="Valor" />
-      <button id="add" onclick="addEntry()">Adicionar</button>
+      <button id="add" onclick="addEntry()">+</button>
       <!-- Botão para revelar os valores -->
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

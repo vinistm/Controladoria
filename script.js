@@ -168,6 +168,8 @@ function loadRecurring() {
 function revealValues() {
   displayEntries();
   displayRecurring();
+  calculateTotals();
+  updateBalance();
 }
 
 // Carrega as entradas ao iniciar a página
