@@ -1,5 +1,4 @@
-loadEntries();
-loadRecurring();
+// Código JavaScript corrigido
 
 function addEntry() {
   const description = document.getElementById("description").value;
@@ -27,9 +26,10 @@ function addEntry() {
     entries.push(entry);
     localStorage.setItem("entries", JSON.stringify(entries));
     displayEntries();
-    calculateTotals();
-    updateBalance();
   }
+
+  calculateTotals();
+  updateBalance();
 
   document.getElementById("description").value = "";
   document.getElementById("value").value = "";
@@ -153,8 +153,8 @@ function loadEntries() {
 function loadRecurring() {
   const recurringEntries =
     JSON.parse(localStorage.getItem("recurringEntries")) || [];
-  for (let i = 0; i < recurringEntries.length; i++) {
-    const recurringEntry = recurringEntries[i];
+  if (recurringEntries.length > 0) {
+    const recurringEntry = recurringEntries[0]; // Acessa apenas a primeira entrada recorrente
     const descriptionInput = document.getElementById("description");
     const valueInput = document.getElementById("value");
     const typeInput = document.getElementById("type");
@@ -164,3 +164,12 @@ function loadRecurring() {
     typeInput.value = "recurring";
   }
 }
+
+function revealValues() {
+  displayEntries();
+  displayRecurring();
+}
+
+// Carrega as entradas ao iniciar a página
+loadEntries();
+loadRecurring();
