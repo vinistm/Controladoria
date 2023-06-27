@@ -7,7 +7,9 @@ function addEntry() {
   const date = document.getElementById("date").value;
 
   if (description.trim() === "" || isNaN(value) || date === "") {
-    alert("Por favor, insira uma descrição válida e um valor numérico.");
+    alert(
+      "Por favor, verique se os campos de Descrição, data ou valor estão preenchidos."
+    );
     return;
   }
   const entry = {
