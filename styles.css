@@ -153,7 +153,21 @@ button:hover {
   border-radius: 0px 0px 30px 30px;
   box-shadow: 0px 4px 5px 1px #00000034;
 }
-.insert > input {
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-group > label {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group > input,
+.input-group > select {
   width: 40vw;
   font-size: 35px;
   border-radius: 10px;
@@ -161,22 +175,24 @@ button:hover {
   text-align: center;
 }
 
-.insert > input:hover {
+.input-group > input:hover,
+.input-group > select:hover {
   background-color: rgba(168, 168, 168, 0.411);
 }
-.insert > #type {
-  width: 40vw;
+
+.input-group > select {
   height: 3vh;
   font-size: 30px;
   padding: 5px 5px 5px 5px;
   border-radius: 12px;
 }
-.insert > #type:hover {
+
+.input-group > select:hover {
   background-color: rgba(196, 195, 195, 0.356);
   cursor: pointer;
 }
 
-.insert > #type > option {
+.input-group > select > option {
   font-size: 20px;
 }
 

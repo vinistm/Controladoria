@@ -48,14 +48,26 @@
 
     <div class="insert">
       <h3 id="balance"></h3>
-      <input type="text" id="description" placeholder="Descrição" />
-      <select id="type">
-        <option value="income">Entrada</option>
-        <option value="expense">Saída</option>
-        <option value="recurring">Contas Recorrentes</option>
+      <div class="input-group">
+        <label for="description">Descrição</label>
+        <input type="text" id="description" placeholder="Descrição" />
+      </div>
+      <div class="input-group">
+        <label for="type">Tipo</label>
+        <select id="type">
+          <option value="income">Entrada</option>
+          <option value="expense">Saída</option>
+          <option value="recurring">Contas Recorrentes</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="date">Data</label>
         <input type="date" id="date" placeholder="Data" />
-      </select>
-      <input type="number" id="value" placeholder="Valor" />
+      </div>
+      <div class="input-group">
+        <label for="value">Valor</label>
+        <input type="number" id="value" placeholder="Valor" />
+      </div>
       <button id="add" onclick="addEntry()">+</button>
       <!-- Botão para revelar os valores -->
     </div>
