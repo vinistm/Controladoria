@@ -8,14 +8,20 @@
     <div class="header">
       <h2>Tabela Financeira</h2>
       <button id="reveal" onclick="revealValues()">Show</button>
-      <div class="filter">
-        <label for="filter-date">Filtrar por Data:</label>
-        <input type="date" id="filter-date" />
+      <div class="filter-container">
+        <button id="filter-button" onclick="openFilterModal()">Filtro</button>
+      </div>
 
-        <label for="filter-value">Filtrar por Valor:</label>
-        <input type="number" id="filter-value" />
-
-        <button onclick="filterEntries()">Filtrar</button>
+      <div id="filter-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeFilterModal()">&times;</span>
+          <h3>Filtro</h3>
+          <label for="filter-date">Data:</label>
+          <input type="date" id="filter-date" placeholder="Data" />
+          <label for="filter-value">Valor:</label>
+          <input type="number" id="filter-value" placeholder="Valor" />
+          <button onclick="filterEntries()">Filtrar</button>
+        </div>
       </div>
     </div>
 

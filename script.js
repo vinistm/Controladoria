@@ -174,6 +174,13 @@ function formatDate(date) {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   return `${day}-${month}`;
 }
+function openFilterModal() {
+  document.getElementById("filter-modal").style.display = "block";
+}
+
+function closeFilterModal() {
+  document.getElementById("filter-modal").style.display = "none";
+}
 
 function filterEntries() {
   const filterDate = document.getElementById("filter-date").value;
@@ -188,7 +195,6 @@ function filterEntries() {
   for (let i = 0; i < entries.length; i++) {
     const entry = entries[i];
 
-    // Verifica se a entrada corresponde aos critérios de filtro
     if (
       (filterDate === "" || entry.date === filterDate) &&
       (isNaN(filterValue) || entry.value === filterValue)
@@ -209,14 +215,10 @@ function filterEntries() {
     }
   }
 
-  // Atualiza a exibição das entradas filtradas
-  const filteredEntriesDiv = document.querySelector(".entries");
-  const filteredExpensesDiv = document.querySelector(".expenses");
-  entriesDiv.innerHTML = filteredEntriesDiv.innerHTML;
-  expensesDiv.innerHTML = filteredExpensesDiv.innerHTML;
-
   calculateTotals();
   updateBalance();
+
+  closeFilterModal();
 }
 
 function revealValues() {
