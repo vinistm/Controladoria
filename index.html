@@ -8,6 +8,15 @@
     <div class="header">
       <h2>Tabela Financeira</h2>
       <button id="reveal" onclick="revealValues()">Show</button>
+      <div class="filter">
+        <label for="filter-date">Filtrar por Data:</label>
+        <input type="date" id="filter-date" />
+
+        <label for="filter-value">Filtrar por Valor:</label>
+        <input type="number" id="filter-value" />
+
+        <button onclick="filterEntries()">Filtrar</button>
+      </div>
     </div>
 
     <div class="valores">
@@ -37,6 +46,7 @@
         <option value="income">Entrada</option>
         <option value="expense">Saída</option>
         <option value="recurring">Contas Recorrentes</option>
+        <input type="date" id="date" placeholder="Data" />
       </select>
       <input type="number" id="value" placeholder="Valor" />
       <button id="add" onclick="addEntry()">+</button>

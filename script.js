@@ -4,15 +4,17 @@ function addEntry() {
   const description = document.getElementById("description").value;
   const value = parseFloat(document.getElementById("value").value);
   const type = document.getElementById("type").value;
+  const date = document.getElementById("date").value;
 
-  if (description.trim() === "" || isNaN(value)) {
+  if (description.trim() === "" || isNaN(value) || date === "") {
+    alert("Por favor, insira uma descrição válida e um valor numérico.");
     return;
   }
-
   const entry = {
     description,
     value,
     type,
+    date,
   };
 
   if (type === "recurring") {
@@ -33,6 +35,7 @@ function addEntry() {
 
   document.getElementById("description").value = "";
   document.getElementById("value").value = "";
+  document.getElementById("date").value = "";
 }
 
 function deleteEntry(index) {
@@ -62,7 +65,9 @@ function displayEntries() {
   for (let i = 0; i < entries.length; i++) {
     const entry = entries[i];
     const entryDiv = document.createElement("div");
-    entryDiv.textContent = `${entry.description} - ${entry.value.toFixed(2)}`;
+    entryDiv.textContent = `${entry.description} - ${entry.value.toFixed(
+      2
+    )} - ${entry.date}`; // Inclui a data na exibição
     if (entry.type === "income") {
       entriesDiv.appendChild(entryDiv);
     } else if (entry.type === "expense") {
@@ -163,6 +168,55 @@ function loadRecurring() {
     valueInput.value = recurringEntry.value;
     typeInput.value = "recurring";
   }
+}
+function formatDate(date) {
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  return `${day}-${month}`;
+}
+
+function filterEntries() {
+  const filterDate = document.getElementById("filter-date").value;
+  const filterValue = parseFloat(document.getElementById("filter-value").value);
+
+  const entriesDiv = document.querySelector(".entries");
+  const expensesDiv = document.querySelector(".expenses");
+  entriesDiv.innerHTML = "";
+  expensesDiv.innerHTML = "";
+
+  const entries = JSON.parse(localStorage.getItem("entries")) || [];
+  for (let i = 0; i < entries.length; i++) {
+    const entry = entries[i];
+
+    // Verifica se a entrada corresponde aos critérios de filtro
+    if (
+      (filterDate === "" || entry.date === filterDate) &&
+      (isNaN(filterValue) || entry.value === filterValue)
+    ) {
+      const entryDiv = document.createElement("div");
+      entryDiv.textContent = `${entry.description} - ${entry.value.toFixed(
+        2
+      )} - ${entry.date}`;
+      if (entry.type === "income") {
+        entriesDiv.appendChild(entryDiv);
+      } else if (entry.type === "expense") {
+        expensesDiv.appendChild(entryDiv);
+      }
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "X";
+      deleteButton.addEventListener("click", () => deleteEntry(i));
+      entryDiv.appendChild(deleteButton);
+    }
+  }
+
+  // Atualiza a exibição das entradas filtradas
+  const filteredEntriesDiv = document.querySelector(".entries");
+  const filteredExpensesDiv = document.querySelector(".expenses");
+  entriesDiv.innerHTML = filteredEntriesDiv.innerHTML;
+  expensesDiv.innerHTML = filteredExpensesDiv.innerHTML;
+
+  calculateTotals();
+  updateBalance();
 }
 
 function revealValues() {
